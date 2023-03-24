@@ -7,13 +7,13 @@ import { removeMark, addPreBlanks, generateSample } from "/@/utils/generate.js";
 const sampleText = ref("");
 const outputText = ref("");
 const form = reactive({
-  name: "",
-  scope: "",
-  prefix: "",
-  description: "",
+  name: "v1",
+  scope: "vue",
+  prefix: "v1",
+  description: "this is vue block",
 });
 watch([sampleText, form], ([textVal]) => {
-  const baseInfo = { ...form, body: addPreBlanks(removeMark(textVal)) };
+  const baseInfo = { ...form, body: addPreBlanks(removeMark(textVal.trim())) };
   outputText.value = generateSample(baseInfo);
 });
 function copyText() {
@@ -26,13 +26,29 @@ function copyText() {
   <div>
     <div class="flex items-center">
       <span class="px-2">name:</span>
-      <el-input v-model="form.name" class="w-40 px-2"></el-input>
+      <el-input
+        v-model="form.name"
+        class="w-40 px-2"
+        placeholder="name"
+      ></el-input>
       <span>scope:</span>
-      <el-input v-model="form.scope" class="w-40 px-2"></el-input>
+      <el-input
+        v-model="form.scope"
+        class="w-40 px-2"
+        placeholder="file type"
+      ></el-input>
       <span>prefix:</span>
-      <el-input v-model="form.prefix" class="w-40 px-2"></el-input>
+      <el-input
+        v-model="form.prefix"
+        class="w-40 px-2"
+        placeholder="shortcut"
+      ></el-input>
       <span>description:</span>
-      <el-input v-model="form.description" class="pl-2"></el-input>
+      <el-input
+        v-model="form.description"
+        placeholder="description"
+        class="pl-2"
+      ></el-input>
     </div>
     <div class="flex my-4">
       <div class="flex flex-col w-1/2">
@@ -41,6 +57,7 @@ function copyText() {
           v-model="sampleText"
           type="textarea"
           :rows="24"
+          :autofocus="true"
           placeholder="add your code here..."
         ></el-input>
       </div>
