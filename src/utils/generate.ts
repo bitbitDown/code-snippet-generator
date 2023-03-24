@@ -3,12 +3,12 @@ export function removeMark(input: string): string {
   const arr = removeMarkStr.split("\n");
   let i = 0;
   while (i < arr.length) {
-    arr[i] = `"${arr[i].replaceAll(/["]/gi, "'")}"${
-      i === arr.length - 1 ? "" : ","
-    }\n`;
+    arr[i] = `"${arr[i]
+      .replaceAll(/["]/gi, "'")
+      .replaceAll(/[$]/gi, "\\\\$")}"${i === arr.length - 1 ? "" : ","}\n`;
     i++;
   }
-  arr.pop();
+  // arr.pop();
   return `${arr.join("\n")}`;
 }
 
