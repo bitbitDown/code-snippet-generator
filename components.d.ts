@@ -7,21 +7,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Class: typeof import('./src/components/editor/content/class.vue')['default']
-    Content: typeof import('./src/components/editor/content/index.vue')['default']
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
-    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElOption: typeof import('element-plus/es')['ElOption']
-    ElSelect: typeof import('element-plus/es')['ElSelect']
-    ElTabPane: typeof import('element-plus/es')['ElTabPane']
-    ElTabs: typeof import('element-plus/es')['ElTabs']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    InputRange: typeof import('./src/components/base/inputRange.vue')['default']
-    MultiSelection: typeof import('./src/components/editor/content/multiSelection.vue')['default']
-    Node: typeof import('./src/components/editor/node/index.vue')['default']
-    Quantifier: typeof import('./src/components/editor/quantifier/index.vue')['default']
-    TestRegex: typeof import('./src/components/test-regex/index.vue')['default']
   }
 }
